@@ -5,7 +5,11 @@
 As a user I can:
 
 - open an account
-- deposist money
+- deposit money
 - withdraw money
 - make purchases
 - close an account
+
+## To run app:
+
+`node bin`
