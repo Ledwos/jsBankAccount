@@ -9,6 +9,7 @@ const rl = readline.createInterface({
 // TO DO
 // - Input validation -> everywhere
 // - Routing back to UIMain
+// - Implement rl.close();
 // - Clear screen? Stretch goal
 
 
