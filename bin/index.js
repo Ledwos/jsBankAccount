@@ -7,7 +7,6 @@ const rl = readline.createInterface({
 });
 
 // TO DO
-// - Input validation -> everywhere
 // - Implement rl.close();
 // - Clear screen? Stretch goal
 
@@ -104,6 +103,8 @@ function UIShop(account) {
             UIResponse(2, account);
         } else if (item === "5"){
             UIMain(account);
+        } else {
+            UIShop(account);
         }
     });
 };
@@ -117,6 +118,8 @@ function UIResponse(res, accRes) {
                     UINewAcc();
                 } else if (response === "n") {
                     UIMain(accRes);
+                } else {
+                    UIResponse(1, accRes);
                 }
             });
             break;
@@ -126,6 +129,8 @@ function UIResponse(res, accRes) {
                     UIMain(accRes)
                 } else if (response === "n") {
                     UIShop(accRes);
+                } else {
+                    UIResponse(2, accRes);
                 }
             });
             break;
@@ -135,6 +140,8 @@ function UIResponse(res, accRes) {
                     UIMain(accRes)
                 } else if (response === "n") {
                     UIDeposit(accRes);
+                } else {
+                    UIResponse(3, accRes);
                 }
             });
             break;
@@ -144,15 +151,19 @@ function UIResponse(res, accRes) {
                     UIMain(accRes)
                 } else if (response === "n") {
                     UIWithdraw(accRes);
+                } else {
+                    UIResponse(4, accRes);
                 }
             });
             break;
         case 5:
             rl.question("Back to home? (y/n)", function(response) {
                 if (response === "y") {
-                    UIMain()
+                    UIMain(accRes);
                 } else if (response === "n") {
-                    UIResponse(5);
+                    UIResponse(5, accRes);
+                } else {
+                    UIResponse(5, accRes);
                 }
             });
             break;
@@ -164,18 +175,19 @@ function UIMain(userInfo) {
     let user = userInfo;
     rl.question("Welcome to JS Bank! \n \nwhat would you like to do today? \n(select a number to continue) \n\n1- Open Account \n2- Withdraw \n3- Deposit \n4- Check Balance \n5- Go Shopping \n\n   Choice: ", function(input) {
         if (input === "1") {
-            console.log("Let\'s open an account!");
-            UINewAcc();
+            user ? (console.log(`${userInfo.name} you already have an account`), UIResponse(5, userInfo)): (console.log("Let\'s open an account!"), UINewAcc());
         } else if (input === "2") {
             user ? (console.log("Let\'s withdraw some moneeyyyy \n"), UIWithdraw(user)) : (console.log("You don't have an account yet"), UIResponse(1));
         } else if (input === "3") {
             user ? (console.log("Let\'s stock up on cash $$$ \n"), UIDeposit(user)) : (console.log("You don't have an account yet"), UIResponse(1));
         } else if (input === "4"){
-            user ? (console.log(`Balance: £ ${user.money}`), UIResponse(5)) : (console.log("You want money? Open an account first!"), UIResponse(1));
+            user ? (console.log(`Balance: £ ${user.money}`), UIResponse(5, user)) : (console.log("You want money? Open an account first!"), UIResponse(1));
         } else if (input === "5"){
             user ? (console.log("let\'s go shopping!"), UIShop(user)) : (console.log("You're trying to go shopping without an account? \nEverything is digital now, open an account :)\n\n"), UIResponse(1));
         } else if (input === "6") {
             user ? UICloseAcc(user) : UIResponse(1);
+        } else {
+            UIMain(user);
         }
     });
 };
