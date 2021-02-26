@@ -79,7 +79,7 @@ function UICloseAcc(account) {
             account.closeAccount();
             UIMain();
         } else if (resClose === "n") {
-            UIMain();
+            UIMain(account);
         }
     });
 }
