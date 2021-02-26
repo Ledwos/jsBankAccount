@@ -74,9 +74,10 @@ function UIDeposit(account) {
 };
 
 function UICloseAcc(account) {
-    rl.question(`You are about to close ${account.name}'s account, do you with to continue? (y/n)`, function(resClose) {
+    rl.question(`You are about to close ${account.name}'s account, do you wish to continue? (y/n)`, function(resClose) {
         if (resClose === "y") {
             account.closeAccount();
+            UIMain();
         } else if (resClose === "n") {
             UIMain();
         }
