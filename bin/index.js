@@ -173,7 +173,7 @@ function UIResponse(res, accRes) {
 
 function UIMain(userInfo) {
     let user = userInfo;
-    rl.question("Welcome to JS Bank! \n \nwhat would you like to do today? \n(select a number to continue) \n\n1- Open Account \n2- Withdraw \n3- Deposit \n4- Check Balance \n5- Go Shopping \n\n   Choice: ", function(input) {
+    rl.question("Welcome to JS Bank! \n \nwhat would you like to do today? \n(select a number to continue) \n\n1- Open Account \n2- Withdraw \n3- Deposit \n4- Check Balance \n5- Go Shopping \n6- Close Account \n7- Exit \n\n   Choice: ", function(input) {
         if (input === "1") {
             user ? (console.log(`${userInfo.name} you already have an account`), UIResponse(5, userInfo)): (console.log("Let\'s open an account!"), UINewAcc());
         } else if (input === "2") {
@@ -185,7 +185,9 @@ function UIMain(userInfo) {
         } else if (input === "5"){
             user ? (console.log("let\'s go shopping!"), UIShop(user)) : (console.log("You're trying to go shopping without an account? \nEverything is digital now, open an account :)\n\n"), UIResponse(1));
         } else if (input === "6") {
-            user ? UICloseAcc(user) : UIResponse(1);
+            user ? UICloseAcc(user) : (console.log("You don\'t have an account in the first place"), UIResponse(1));
+        } else if (input === "7") {
+            rl.close();
         } else {
             UIMain(user);
         }
