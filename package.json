@@ -4,7 +4,7 @@
   "description": "> A basic bank account simulation in your terminal.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --verbose --watch-all"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Ledwos/jsBankAccount#readme",
   "bin": {
     "jsBank": "./bin/index.js"
+  },
+  "dependencies": {
+    "jest": "^26.6.3"
   }
 }

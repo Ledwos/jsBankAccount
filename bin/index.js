@@ -195,4 +195,16 @@ function UIMain(userInfo) {
     });
 };
 
-UIMain(null);
+// UIMain(null);
+
+
+// Just to see that file can be read in index.test.js
+function hello() {
+    return "hello";
+};
+
+module.exports = {
+    hello: hello(),
+    // UIMain: UIMain(null),
+    BankAccount: new BankAccount('Dan', 88),
+};
