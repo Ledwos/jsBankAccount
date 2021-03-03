@@ -12,4 +12,9 @@ As a user I can:
 
 ## To run app:
 
-`node bin`
+ - `npm install`
+ - uncomment line 198 in index.js (commented out for testing)
+ - `node bin`
+
+## To run tests:
+- `npm test`

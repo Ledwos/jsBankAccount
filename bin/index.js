@@ -206,5 +206,5 @@ function hello() {
 module.exports = {
     hello: hello(),
     // UIMain: UIMain(null),
-    BankAccount: new BankAccount('Dan', 88),
+    BankAccount: BankAccount,
 };
