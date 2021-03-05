@@ -1,0 +1,26 @@
+{
+  "name": "jsBankAccount",
+  "version": "1.0.0",
+  "description": "> A basic bank account simulation in your terminal.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose --watch-all"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ledwos/jsBankAccount.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ledwos/jsBankAccount/issues"
+  },
+  "homepage": "https://github.com/Ledwos/jsBankAccount#readme",
+  "bin": {
+    "jsBank": "./bin/index.js"
+  },
+  "dependencies": {
+    "jest": "^26.6.3"
+  }
+}
